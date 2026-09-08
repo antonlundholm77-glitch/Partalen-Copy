@@ -42,3 +42,6 @@ Ground/handovers/
 # Tillfälliga arbetsfiler (script-output, debug-snippets m.m.)
 /tmp/
 
+
+# Local Netlify folder
+.netlify
