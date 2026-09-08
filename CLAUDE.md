@@ -68,7 +68,7 @@ med testdata från `lib/preview-projects.ts`. Med env → Microsoft Entra OAuth 
 
 Alla DB-objekt är `gf_`-prefixade (teknisk konvention, ärvt från plattformens
 underliggande schema). Migrationer i `supabase/migrations/`.
-Aktuell migration: `0027`. Relevanta tabeller:
+Aktuell migration: `0028`. Relevanta tabeller:
 
 | Tabeller | Syfte |
 |---|---|
