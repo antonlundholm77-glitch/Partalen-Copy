@@ -16,10 +16,8 @@ domäner ska in i det här dokumentet eller i git.
    eget bolagsskal. Kör därefter `0001_dev_users.sql` (dev-testanvändare,
    valfritt) och `0003_partalen_deliverables.sql` (kräver att projektet
    `part-group/partalen` redan finns — skapas via UI:t först).
-4. **Uppdatera plattformsadmin-domänen.** `gf_is_platform_admin()`
-   (`supabase/migrations/0002_access.sql`) har en platshållardomän
-   (`part-group.example`). Kör en ny migration som byter domänen till
-   Part Groups riktiga domän innan produktionslansering.
+4. **Plattformsadmin-domänen** är satt till `partgroup.se` sedan migration
+   0028 (`gf_is_platform_admin()`, ursprungligen `0002_access.sql`).
 
 ## 2. Microsoft Entra (Azure AD)
 

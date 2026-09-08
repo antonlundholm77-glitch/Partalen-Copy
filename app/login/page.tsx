@@ -64,7 +64,7 @@ function LoginInner() {
           redirectTo: callback,
           // Tvinga Microsoft att visa kontoväljare istället för att auto-välja
           // senaste konto. Förhindrar att en user med flera Entra-konton
-          // (t.ex. part-group.example + kund-domän) loggas in som fel person.
+          // (t.ex. partgroup.se + kund-domän) loggas in som fel person.
           queryParams: { prompt: "select_account" },
         },
       });

@@ -56,8 +56,7 @@ Part Group (operatör)  ▸  Bolag  ▸  Projekt  ▸  Modul
 ### Plattformsadmin
 
 Domäncheck i `gf_is_platform_admin()` (Supabase RLS-funktion) avgör plattformsadmin.
-För tillfället en platshållardomän (`part-group.example`) — byt till Part Groups
-riktiga domän i Supabase-migrationen när eget Supabase-projekt sätts upp.
+Satt till `partgroup.se` sedan migration 0028.
 
 ### Auth
 

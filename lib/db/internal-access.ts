@@ -60,10 +60,10 @@ export async function buildInternalAccessTree(): Promise<InternalAccessResult> {
   // Profilkort per user_id
   const profileById = new Map(profiles.map((p) => [p.user_id, p]));
 
-  // Intern personal = email-domän @part-group.example. System-roller läggs på.
+  // Intern personal = email-domän @partgroup.se. System-roller läggs på.
   const systemRoleByUser = new Map(systemRoles.map((r) => [r.user_id, r.role]));
   const platformProfiles = profiles.filter((p) =>
-    (p.email ?? "").toLowerCase().endsWith("@part-group.example"),
+    (p.email ?? "").toLowerCase().endsWith("@partgroup.se"),
   );
   const platformUsers = platformProfiles.map((p) => ({
     user_id: p.user_id,

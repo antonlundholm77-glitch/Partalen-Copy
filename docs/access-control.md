@@ -16,13 +16,11 @@ en roll på enskilda projekt. Åtkomst är alltid en OR — den starkaste träff
 ### Plattformsadmin
 
 ```sql
-gf_is_platform_admin() = lower(split_part(auth.jwt()->>'email', '@', 2)) = 'part-group.example'
+gf_is_platform_admin() = lower(split_part(auth.jwt()->>'email', '@', 2)) = 'partgroup.se'
 ```
 
-Ren domän-check på inloggad e-post, ingen DB-rad. **Idag en platshållardomän**
-(`part-group.example`) — måste bytas till Part Groups riktiga domän i en
-migration när ett eget Supabase-projekt sätts upp (se CLAUDE.md). Plattformsadmin
-har alltid full åtkomst, oavsett bolags-/projektroll.
+Ren domän-check på inloggad e-post, ingen DB-rad (se migration 0028).
+Plattformsadmin har alltid full åtkomst, oavsett bolags-/projektroll.
 
 ### Bolagsroll (`gf_memberships.role`, enum `gf_member_role`)
 

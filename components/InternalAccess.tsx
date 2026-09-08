@@ -104,7 +104,7 @@ export default async function InternalAccess() {
           <StatCard
             label="Intern personal"
             value={stats.platformCount}
-            delta="@part-group.example"
+            delta="@partgroup.se"
             deltaTone="muted"
           />
           <StatCard
@@ -142,7 +142,7 @@ export default async function InternalAccess() {
         <SectionHeader>Åtkomst per nivå</SectionHeader>
         <OrgTree data={data} canManage={AUTH_ENABLED} />
         <p className="text-ink-3 mt-3 text-[12px] leading-relaxed">
-          Plattformsadmin styrs av domänen <strong className="text-ink-2">@part-group.example</strong>.
+          Plattformsadmin styrs av domänen <strong className="text-ink-2">@partgroup.se</strong>.
           Kundmedlemmar ser hela kunden; enhetsmedlemmar (inkl. externa) ser bara sin enhet.
         </p>
 
@@ -180,7 +180,7 @@ function initials(name: string): string {
 const ROLE_TIERS: { title: string; body: string; bar: string }[] = [
   {
     title: "Systemroller",
-    body: "Superadmin & Support — intern personal, styrs av domänen @part-group.example. Full insyn.",
+    body: "Superadmin & Support — intern personal, styrs av domänen @partgroup.se. Full insyn.",
     bar: "border-l-[#6d6930]",
   },
   {

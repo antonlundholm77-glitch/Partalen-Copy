@@ -196,8 +196,7 @@ create index if not exists gf_invitations_org_idx on gf_invitations (org_id);
 create or replace function public.gf_is_platform_admin()
 returns boolean language sql stable
 as $$
-  -- TODO: byt till Part Groups riktiga domän innan produktionslansering.
-  select lower(split_part(coalesce(auth.jwt() ->> 'email', ''), '@', 2)) = 'part-group.example';
+  select lower(split_part(coalesce(auth.jwt() ->> 'email', ''), '@', 2)) = 'partgroup.se';
 $$;
 
 create or replace function public.gf_is_org_admin(target_org uuid)
