@@ -21,8 +21,35 @@ function LoginInner() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState<string | null>(null);
+  const [pwEmail, setPwEmail] = useState("");
+  const [pwPassword, setPwPassword] = useState("");
+  const [pwLoading, setPwLoading] = useState(false);
   const searchParams = useSearchParams();
   const next = safeNext(searchParams.get("next"));
+
+  // Lösenordsinlogg — reservväg när e-postlänkar inte når fram (t.ex. om
+  // mottagarens domän skannar länkar innan mottagaren hinner klicka).
+  async function signInPassword(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setPwLoading(true);
+    setError(null);
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithPassword({
+        email: pwEmail.trim().toLowerCase(),
+        password: pwPassword,
+      });
+      if (error) {
+        setError(error.message);
+      } else {
+        window.location.href = next;
+      }
+    } catch {
+      setError("Kunde inte logga in. Försök igen om en stund.");
+    } finally {
+      setPwLoading(false);
+    }
+  }
 
   async function signInAzure() {
     setAzureLoading(true);
@@ -77,7 +104,7 @@ function LoginInner() {
     }
   }
 
-  const busy = azureLoading || emailLoading;
+  const busy = azureLoading || emailLoading || pwLoading;
 
   return (
     <main className="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-6">
@@ -154,6 +181,42 @@ function LoginInner() {
         Microsoft är standardvägen. Email-länken är en alternativ väg för
         konton som inte fungerar mot Entra ID.
       </p>
+
+      <div className="border-border mt-6 border-t pt-4">
+        <p className="text-ink-3 mb-2 text-xs font-medium uppercase tracking-wider">
+          Lösenordsinlogg
+        </p>
+        <form onSubmit={signInPassword} className="flex flex-col gap-2">
+          <input
+            type="email"
+            value={pwEmail}
+            onChange={(e) => setPwEmail(e.target.value)}
+            placeholder="din.epost@exempel.se"
+            required
+            disabled={busy}
+            autoComplete="email"
+            className="border-border bg-surface rounded border px-3 py-[9px] text-[13.5px]"
+          />
+          <input
+            type="password"
+            value={pwPassword}
+            onChange={(e) => setPwPassword(e.target.value)}
+            placeholder="Lösenord"
+            required
+            disabled={busy}
+            autoComplete="current-password"
+            className="border-border bg-surface rounded border px-3 py-[9px] text-[13.5px]"
+          />
+          <Button
+            type="submit"
+            variant="ghost"
+            disabled={busy || pwEmail.trim().length === 0 || pwPassword.length === 0}
+            className="w-full"
+          >
+            {pwLoading ? "Loggar in…" : "Logga in"}
+          </Button>
+        </form>
+      </div>
     </main>
   );
 }
