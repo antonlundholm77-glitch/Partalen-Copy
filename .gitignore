@@ -1,0 +1,44 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# next.js (inkl. iCloud-konfliktkopior ".next 2" och .next.nosync)
+/.next*
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# production
+/build
+
+# env — secrets stay local, only .env.example is committed
+.env
+.env.local
+.env*.local
+
+# supabase
+/supabase/.branches
+/supabase/.temp
+
+# misc
+.DS_Store
+*.pem
+/coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode/*
+!.vscode/extensions.json
+.idea
+Ground/handovers/
+.mcp.json
+
+# Råmaterial från kunder/projekt — input till Ground/-filer och seeds.
+# Lokal-only, aldrig committat. Struktur: _input/<Kund>/<Projekt>/<filer>.
+# Se docs/conventions/input-folder.md.
+/_input/
+
+# Tillfälliga arbetsfiler (script-output, debug-snippets m.m.)
+/tmp/
+

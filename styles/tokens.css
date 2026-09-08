@@ -1,0 +1,64 @@
+/* Designtokens — grafisk profil (varm oliv på papper).
+   Variabelnamnen behålls från tidigare (stone-paletten) men pekar nu på
+   oliv-värdena, så alla komponenter följer med automatiskt. */
+:root {
+  /* ---- Papper & yta ---- */
+  --bg: #f6f3e9;
+  --bg-panel: #ffffff;
+  --bg-secondary: #efead9;
+  --inherited-bg: #f1ecdc;
+
+  /* ---- Linjer ---- */
+  --border: #e9e3d0;
+  --border-strong: #d9d2bb;
+
+  /* ---- Text ---- */
+  --text-primary: #232014;
+  --text-secondary: #6e6a52;
+  --text-tertiary: #a8a48c;
+
+  /* ---- Oliv-accent (profil) ---- */
+  --accent: #6d6930;
+  --accent-bg: #eae8d0;
+  --accent-text: #4f4b22;
+
+  /* ---- Semantik ---- */
+  --warning-bg: #f2e6cc;
+  --warning-text: #9a6a1e;
+  --success-bg: #dde7d5;
+  --success-text: #5e8553;
+
+  --shadow: 0 1px 2px rgba(35, 32, 20, 0.04), 0 4px 16px rgba(35, 32, 20, 0.05);
+  --shadow-lg: 0 2px 6px rgba(35, 32, 20, 0.06), 0 20px 50px rgba(35, 32, 20, 0.12);
+
+  /* ---- Kanoniska tokennamn (för designsystem-primitiverna) ----
+     Alias mot samma oliv-värden som ovan, så porterade komponenter
+     (Button/Card/Table m.fl.) kan användas oförändrade. */
+  --surface: var(--bg-panel);
+  --elevated: #fbf8ee;
+  --fg: var(--text-primary);
+  --fg-warm: #544a26;
+  --fg-2: var(--text-secondary);
+  --fg-3: var(--text-tertiary);
+  --fg-inv: #f6f3e9;
+  --border-2: var(--border-strong);
+  --border-3: #bcb69b;
+  --accent-2: #86883a;
+  --accent-bright: #a0a845;
+  --danger: #a8392b;
+  --danger-bg: #f3dbd6;
+  --warn: #9a6a1e;
+  --warn-bg: #f2e6cc;
+  --warm: #b5532a;
+  --warm-2: #d67a4f;
+  --warm-bg: #f5e5d9;
+  --elev-1: var(--shadow);
+  --elev-2: var(--shadow-lg);
+  --elev-popover: 0 12px 30px rgba(35, 32, 20, 0.18);
+
+  /* ---- Typsnittsroller (sätts av next/font i app/layout.tsx) ---- */
+  --display: var(--font-comfortaa), sans-serif;
+  --serif: var(--font-frank), Georgia, serif;
+  --sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --mono: var(--font-geist-mono), "SF Mono", Menlo, monospace;
+}

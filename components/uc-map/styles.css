@@ -1,0 +1,89 @@
+/**
+ * OpenLayers base styles
+ * Import this in your application: import '@playze/shared-uc-map/styles.css'
+ */
+
+/* Import OpenLayers default styles */
+@import 'ol/ol.css';
+
+/* Map container base styles */
+.playze-map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure map renders properly */
+.playze-map-container .ol-viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Zoom control styling - clean modern look */
+.playze-map-container .ol-zoom {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  overflow: hidden;
+}
+
+.playze-map-container .ol-zoom button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  border: none;
+  color: #374151;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.playze-map-container .ol-zoom button:hover {
+  background-color: #f3f4f6;
+}
+
+.playze-map-container .ol-zoom button:focus {
+  outline: none;
+  background-color: #e5e7eb;
+}
+
+.playze-map-container .ol-zoom .ol-zoom-in {
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 6px 6px 0 0;
+}
+
+.playze-map-container .ol-zoom .ol-zoom-out {
+  border-radius: 0 0 6px 6px;
+}
+
+/* Attribution styling - subtle and collapsed by default */
+.playze-map-container .ol-attribution {
+  font-size: 11px;
+}
+
+.playze-map-container .ol-attribution:not(.ol-collapsed) {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 4px;
+}
+
+.playze-map-container .ol-attribution button {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}
+
+/* Hide rotate control when not rotated */
+.playze-map-container .ol-rotate.ol-hidden {
+  display: none;
+}
